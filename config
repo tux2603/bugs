@@ -1,0 +1,94 @@
+[NEAT]
+fitness_criterion   = max
+fitness_threshold   = 2000
+pop_size            = 30
+reset_on_extinction = False
+
+[DefaultGenome]
+
+# What neuron activation function any new nodes will use
+activation_default      = sigmoid
+
+# The rate at which the activation function of the neuron will change
+activation_mutate_rate  = 0.05
+
+# The activation functions available to be used
+activation_options      = sigmoid tanh softplus gauss clamped
+
+# The default way that the neurons combine all their different inputs
+aggregation_default     = sum
+
+# How often the function will change
+aggregation_mutate_rate = 0.05
+
+# The functions that are available
+aggregation_options     = sum min max mean median
+
+# No clue. Should probably figure this out
+bias_init_mean          = 0.0
+bias_init_stdev         = 1.0
+bias_max_value          = 30.0
+bias_min_value          = -30.0
+bias_mutate_power       = 0.5
+bias_mutate_rate        = 0.7
+bias_replace_rate       = 0.1
+
+# When new generations are generated, genomes are considered compatible if they fall within
+#   a certain distance of each other. This values determine how that distance is computed
+compatibility_disjoint_coefficient  = 0.9
+compatibility_weight_coefficient    = 0.75
+
+# The probability that connections will be added and subtracted between the nodes
+conn_add_prob       = 0.5
+conn_delete_prob    = 0.5
+
+# Whether new connections are eneabled by default
+enabled_default     = True
+enabled_mutate_rate = 0.01
+
+# Keeps nodes from looping back onto themselves
+feed_forward = True
+
+# No brain to start with
+initial_connection = partial_direct 0.5
+
+# bug brains git bigger
+node_add_prob = 0.2
+node_delete_prob = 0.19
+
+# Shape of bug brains
+num_hidden = 4
+num_inputs = 4
+num_outputs = 4
+
+# Default values from the XOR example
+# node response options
+response_init_mean      = 1.0
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.5
+response_mutate_rate    = 0.8
+response_replace_rate   = 0.1
+
+# connection weight options
+weight_init_mean        = 0.0
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.5
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+# More defaults. I'll tweak them later
+[DefaultSpeciesSet]
+compatibility_threshold = 3.0
+
+[DefaultStagnation]
+species_fitness_func = mean
+max_stagnation       = 10
+species_elitism      = 0
+
+[DefaultReproduction]
+elitism            = 2
+survival_threshold = 0.2
